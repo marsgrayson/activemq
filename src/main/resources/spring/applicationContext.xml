@@ -8,7 +8,7 @@
 
 	<bean id="connectionFactory"
         class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="tcp://192.168.15.15:61616"></property>
+        <property name="brokerURL" value="tcp://localhost:61616"></property>
     </bean>
     <!-- 声明ActiveMQ消息目标,目标可以是一个队列，也可以是一个主题ActiveMQTopic-->
     <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
