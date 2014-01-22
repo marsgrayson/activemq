@@ -12,7 +12,7 @@
     </bean>
     <!-- 声明ActiveMQ消息目标,目标可以是一个队列，也可以是一个主题ActiveMQTopic-->
     <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
-        <constructor-arg index="0" value="edu.sjtu.erplab.springactivemq2"></constructor-arg>
+        <constructor-arg index="0" value="queueName"></constructor-arg>
     </bean>
     <!---->
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
