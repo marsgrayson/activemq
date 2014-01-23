@@ -34,15 +34,30 @@ public class TestSomeService {
 
 	@Resource  
     private JmsTemplate jmsTempalte;  
-      
+//	@Resource  
+//    private JmsTemplate jmsTempalte2; 
+//	@Resource  
+//    private JmsTemplate jmsTempalte3; 
     @Test  
     public void test() {  
         jmsTempalte.send(new MessageCreator() {  
             public Message createMessage(Session session) throws JMSException {  
                // return session.createTextMessage(UUID.randomUUID().toString());  
-                return session.createTextMessage(new Date().toString());  
+                return session.createTextMessage("1111111111111111111-"+new Date().toString());  
             }  
         });  
+//        jmsTempalte2.send(new MessageCreator() {  
+//            public Message createMessage(Session session) throws JMSException {  
+//               // return session.createTextMessage(UUID.randomUUID().toString());  
+//                return session.createTextMessage("2222222222222222-"+new Date().toString());  
+//            }  
+//        });  
+//        jmsTempalte3.send(new MessageCreator() {  
+//            public Message createMessage(Session session) throws JMSException {  
+//               // return session.createTextMessage(UUID.randomUUID().toString());  
+//                return session.createTextMessage("333333333333333333-"+new Date().toString());  
+//            }  
+//        });  
     }  
  
 }
