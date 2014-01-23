@@ -13,7 +13,6 @@
 			<url>http://192.168.21.136:8081/nexus/content/repositories/public/</url>
 		</repository>
 	</repositories>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -23,7 +22,11 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.8.0</version>
+		</dependency>
 		<dependency>
 			<groupId>com</groupId>
 			<artifactId>activemq-all</artifactId>
@@ -75,5 +78,33 @@
 			<artifactId>xbean-spring</artifactId>
 			<version>3.14</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.2.2.RELEASE</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>Union</groupId>
+			<artifactId>Union</artifactId>
+			<version>1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/aopalliance-1.0.jar</systemPath>
+		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<jms.new-issue.brokerURL>tcp://localhost:61616</jms.new-issue.brokerURL>
+			</properties>
+		</profile>
+	</profiles>
 </project>
